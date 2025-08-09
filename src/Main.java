@@ -1,5 +1,5 @@
 
-class Frequency{
+class Main{
     public static void main(String[] args) {
         int num=232435;
         int temp=num;

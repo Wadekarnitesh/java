@@ -6,7 +6,7 @@ public class IfElseIf1
 		{
 			System.out.println("hi");
 		}
-		else if(false)[
+		else if(false)
 		{
 			System.out.println("hello");
 		}

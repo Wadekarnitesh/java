@@ -20,7 +20,7 @@ class Number
 		// }
 		// System.out.println(count);
 		
-		// int num=123456;
+		int num=123456;
 		// int count=0;
 		// do
 		// {
@@ -30,7 +30,7 @@ class Number
 		// while(num>0);
 		// System.out.println(count);
 		
-		for(int num=123456; num>0; num++)
+		for(num=123456; num>0; num++)
 		{
 			num/=10;
 			
