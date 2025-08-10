@@ -52,11 +52,62 @@ public class AllArrayMethod {
         int[]u1={2,5,7,8,4};
         int u2[]={7,9,6,4,2};
         // System.out.println(Arrays.toString(intersectElementArrayUnique(b, p)));
-        System.out.println(Arrays.toString(unionElementArrayUnique(u1, u2)));
+
+        // System.out.println(Arrays.toString(unionElementArrayUnique(u1, u2)));
+        // System.out.println(Arrays.toString(checkFrequency(p)));
+        System.out.println(Arrays.toString(p));
+        // System.out.println(Arrays.toString(uniqueElementArray(p)));
+        // System.out.println(Arrays.toString(duplicatePrintArray(p)));
         
 
 
-    } public static int[] unionElementArrayUnique(int[]a,int[]b) {
+
+        
+
+
+    }
+
+    public static int[] duplicatePrintArray(int []a){
+        int ct[]=checkFrequency(a);
+        int count=0;
+        for(int i=0;i<ct.length;i++){
+            if(ct[i]!=0){
+                count++;     
+            }
+        }
+        int ans[]=new int [count];
+        int j=0;
+         for(int i=0;i<ct.length;i++){
+            if(ct[i]!=0){
+                ans[j++]=a[i];   
+            }
+        }
+        return ans;
+
+    }
+
+    public static int[] uniqueElementArray(int[]a){
+    
+        int ct[]=checkFrequency(a);
+        int count=0;
+        for(int i=0;i<ct.length;i++){
+            if(ct[i]==0){
+                count++;     
+            }
+        }
+        int ans[]=new int [count];
+        int j=0;
+         for(int i=0;i<ct.length;i++){
+            if(ct[i]==0){
+                ans[j++]=a[i];   
+            }
+        }
+        return ans;
+
+    }
+    
+    
+     public static int[] unionElementArrayUnique(int[]a,int[]b) {
        
         int ct=0;
          boolean []check=new boolean[b.length];

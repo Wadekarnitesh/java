@@ -6,7 +6,7 @@ public class Validation {
     int age;
 
     public Validation() {
-        // default constructor
+        
     }
 
     public Validation(String name, String address, int age) {
@@ -22,15 +22,14 @@ public class Validation {
         }
     }
 
-    @Override
     public String toString() {
         return "Name: " + name + ", Address: " + address + ", Age: " + age + ", Aadhar No: " + aadharNo;
     }
 
     public static void main(String[] args) {
         Validation v1 = new Validation("raj", "pune", 60);
-        System.out.println(v1); // calls toString()
+        System.out.println(v1); 
 
-        Validation v2 = new Validation("a", "", 9); // should print "Invalid info."
+        Validation v2 = new Validation("a", "", 9); 
     }
 }
