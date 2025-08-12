@@ -1,25 +1,14 @@
-import java.util.Scanner;
 class Factor
 {
-	public static void main(String[] args)
-	{
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the number: ");
-		int num = sc.nextInt();
-		
-		int den = 1;
-		
-		//while(den<=num)
-		while(den<=num/2)    //bcz factorial is half of its number it is always calculated in half
-		{
-			
-			if(num%den==0)
-			{
-				System.out.println(den);
-				
+	public static void factor(int a){
+		for(int i=2;i<a/2;i++){
+			if(a%i==0){
+				System.out.println(i);
 			}
-			den++;
 		}
-		System.out.println(num);
 	}
+	
+	public static void main(String[] args) {
+		factor(40);
+    }
 }
