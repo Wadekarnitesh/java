@@ -6,9 +6,44 @@ public class SortArray {
         // System.out.println(Arrays.toString(bubbleSortModified(a)));
         // System.out.println(Arrays.toString(bubbleSort(a)));
         // System.out.println(Arrays.toString(mergeSort(a, b)));
-        mergeSort2(a, 0, a.length-1);
+        // mergeSort2(a, 0, a.length-1);
+        // quickSort(a, 0, a.length-1);
         System.out.println(Arrays.toString(a));
     }
+    
+    public static void quickSort(int[]a,int start,int end){
+        if(start<end){
+            int index=partision(a, start, end);
+            quickSort(a, start, index-1);
+            quickSort(a, index+1, end);
+        }
+    }
+    public static int partision(int []a,int start,int end){
+        int ref=a[start];
+        int i=start,j=end;
+        while(i<j){
+            while(i<=end && a[i]<=ref){
+                i++;
+            }
+            while(j>start&& a[j]>ref){
+                j--;
+            }
+            if(i<j){
+                int temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+
+            }
+            else{
+                break;
+            }
+        }
+        int temp=a[start];
+        a[start]=a[j];
+        a[j]=temp;
+        return j;
+    }
+
 
     public static int [] mergeSort(int []a,int[]b) {
         int i=0,j=0,k=0;

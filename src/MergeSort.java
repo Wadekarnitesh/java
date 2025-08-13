@@ -37,6 +37,9 @@ public class MergeSort {
         }
         for(int k2=start;k2<=end;k2++){
             a[k2]=ans[k2];
+
+
         }
+
     }
 }
