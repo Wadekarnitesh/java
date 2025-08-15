@@ -66,6 +66,24 @@ public class AllArrayMethod {
 
 
     }
+    public static int[] removeDuplicate(int []a){
+        int ct[]=checkFrequency(a);
+        int count=0;
+       for( int i=0;i<ct.length;i++){
+            if(ct[i]!=-1){
+                count++;
+            }
+        }
+        int ans[]=new int[count];
+        int j=0;
+        for(int i=0;i<ct.length;i++){
+            if(ct[i]!=-1){
+                ans[j]=a[i];
+                j++;
+            }
+        }
+        return ans;
+    }
 
     public static int[] duplicatePrintArray(int []a){
         int ct[]=checkFrequency(a);
