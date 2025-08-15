@@ -1,3 +1,4 @@
+
 public class InterviewQuestions {
 
 public static void main(String[] args) {
@@ -20,6 +21,10 @@ public static void main(String[] args) {
 
 
     }
-    System.out.println(count);
+    System.out.println("tota number of operation require " +count);
+    // Arrays.toSring(a);
+    for(int c:a){
+        System.out.print(c+" ,");
+    }
 }    
 }
