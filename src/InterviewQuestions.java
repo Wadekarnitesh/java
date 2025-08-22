@@ -18,8 +18,6 @@ public static void main(String[] args) {
             break;
         }
          SortArray.bubbleSort(a);
-
-
     }
     System.out.println("tota number of operation require " +count);
     // Arrays.toSring(a);
