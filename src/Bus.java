@@ -20,7 +20,7 @@ public class Bus {
     public Bus() {
     }
 
-    public Bus(String name, String no, String start, String end, String type, String seatType, String startTime, String endTime, int dist, String[] boarding, STring[] drop) {
+    public Bus(String name, String no, String start, String end, String type, String seatType, String startTime, String endTime, int dist, String[] boarding, String[] drop) {
         this.name = name;
         this.no = no;
         this.start = start;
@@ -74,7 +74,7 @@ public class Bus {
                         }
                     }
                     else if(j%2==0&& seats[i][j+1].gen==gen || j%2!=0&&seats[i][j-1].gen==gen){
-                        if(checkStartPoint(boarding)&& checkDropPoint(drop)){
+                        if(checkStartPoint(boarding)&& checkDropPoint(dest)){
                             reserveSeats(i,j,name,age,gen,phno,boarding,dest,email);
                         }
                         else{
@@ -127,7 +127,7 @@ public class Bus {
                 if((i==i2 && j%2==0 && j2==j+1 && seats[i][j]==null && 
                 seats [i2][j2]==null) ||(i==i2 && j%2!=0 && j2==j-1&& 
                 seats[i][j-1]==null && seats [i2][j2]==null)){
-                    if(checkStartPoint(boarding)&&checkEndPoint(dest)){
+                    if(checkStartPoint(boarding)&&checkDropPoint(dest)){
                          reserveSeats(i,j,name,age,gen,phno,boarding,dest,email);
                           reserveSeats(i2,j2,name2,age2,gen2,phno2,boarding,dest,email2);
                     }
@@ -136,7 +136,7 @@ public class Bus {
                     }
                 }
                 else if(j%2==0 && seats[i][j+1]==null || j%2!=0 && seats[i][j-1]==null){
-                     if(checkStartPoint(boarding)&&checkEndPoint(dest)){
+                     if(checkStartPoint(boarding)&&checkDropPoint(dest)){
                         seats[i][j]=new User(name,age,gen,phno,
                         boarding,dest,email);
                         System.out.println(name+" Seat is Booked!");
@@ -147,7 +147,7 @@ public class Bus {
                      }
                     
                 }else if(j%2==0&& seats[i][j+1].gen==gen || j%2!=0&& seats[i][j-1].gen==gen){
-                   if(checkStartPoint(boarding)&&checkEndPoint(dest)){
+                   if(checkStartPoint(boarding)&&checkDropPoint(dest)){
                         reserveSeats(i,j,name,age,gen,phno,boarding,dest,email);
                          if(j2%2==0 && seats[i2][j2+1]==null || j2%2!=0 && seats[i2][j2-1]==null){
                             
@@ -180,13 +180,14 @@ public class Bus {
                             else{
                                 System.out.println(name+" seat not be booked!");
                                 System.out.println("Seat is reserved for male");
-
+                            }
                 }
 
             }
          }
+         
     }
-    public boolean checkDropPoint(String boarding1){
+    public boolean checkStartPoint(String boarding1){
         for(int i=0;i<this. boarding.length ;i++){
             if(this. boarding[i].equals(boarding1)){
                 return true;
@@ -205,7 +206,22 @@ public class Bus {
     private void reserveSeats(int row,int column,String name,int age,char gen,long phno,
     String  boarding,String dest,String email){
         
+        seats[row][column]=new User(name, age, gen, phno, boarding, dest, email);
+        System.out.println(name+" seat Booked successfully");
+
     }
+
+    public String toString(){
+        return "[Name:"+name+",Bus Number:"+no+",Strating Point:"+boarding+",Destination:"+end+"]";
+    }
+    public boolean equals(Object o){
+        return this.no.equals(((Bus)o).no);
+    }
+    public int hashCode(){
+        return no.hashCode();
+    }
+    
+        
 
     
 }
