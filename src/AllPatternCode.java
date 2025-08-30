@@ -1,10 +1,36 @@
 public class AllPatternCode {
      public static void main(String[] args) {
-     t10(6);   
+     t11(6);   
     }
 
 
-    
+    public static void t12(int n){
+        
+        
+    }
+    public static void t11(int n){
+//  *
+//  * *
+//  * * *
+//  * * * *
+//  * * *
+//  * *
+//  *
+        int star=1;
+        for(int i=0;i<=n;i++){
+            for(int j=0;j<star;j++){
+                System.out.print(" *");
+
+            }
+            System.out.println();
+            if(i<n/2){
+                star++;  
+            }
+            else{
+                star--;
+            }
+        }
+    }
     public static void t10(int n){
 
 //                 * 
