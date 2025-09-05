@@ -1,21 +1,166 @@
 
-import com.sun.source.doctree.ReturnTree;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class AllStringCode {
     public static void main(String[] args) {
-        String s="I Love India";
+        String s="hello! I am here, where you?";
         // readString(s);
         // System.out.println(countOfVowel(s));
-        System.out.println(Arrays.toString(StringToCharArray(s)));
+        // System.out.println(Arrays.toString(StringToCharArray(s)));
         System.out.println(Arrays.toString(StringToByteArray(s)));
         // System.out.println(stringUpperCase("jguifjkvgk5888=*)([1279hkhkig"));
         // System.out.println(stringLowerCase("jgHWKFWHIWHILNAKF80-8ACig"));
         // System.out.println(InStringToFoundNumber("kvgk5888=*)([1279hkh"));
         // System.out.println(reverseString(s));
         // System.out.println(facinatingNumber(" 987654321"));
-        System.out.println(printSpecialChar("jfdjcjh@647478[]1`//,><)()*&*(&*((r75779222"));
-        frequncyOfCharecter(s);
+        // System.out.println(printSpecialChar("jfdjcjh@647478[]1`//,><)()*&*(&*((r75779222"));
+        // frequncyOfCharecter(s);
+        // System.out.println(subString(s, -2, 6));
+        // System.out.println(length(s));
+        // System.out.println(s.length());
+        // System.out.println(removeDuplicateChar("niteshwadekar"));
+        // System.out.println(countWordsInSentence("   I love ibdia jwd dd "));
+        // String []d=s.split(" ");
+        // System.out.println(Arrays.toString(d)+d[d.length-1].charAt(0));
+        System.out.println(reverseSentenceIfWordEndSpecial(s));
+    
+    }
+    public static String reverseWOrdInsteadSpecialChar(String s){
+        String ans="";
+        char ch=s.charAt(s.length()-1);
+        int i;
+        if(!(ch>='a'&&ch<='z'|| ch>='A'&&ch<='Z'|| ch>='0'&&ch<='9')){
+            i=s.length()-2;
+        }
+        else{
+            i=s.length()-1;
+        }
+        for(; i>=0;i--){
+            ans+=s.charAt(i);
+
+        }
+        if(s.length()==ans.length()){
+            return ans;
+        }
+        else{
+            return ans+ch;
+        }
+    }
+    public static String reverseSentenceIfWordEndSpecial(String s){
+        String ans="";
+        String word="";
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)!=' '){
+                word+=s.charAt(i);
+            }
+            else{
+                ans+=reverseWOrdInsteadSpecialChar(word)+" ";
+                word="";
+            }
+        }
+        ans+=reverseWOrdInsteadSpecialChar(word);
+        return ans;
+    }
+
+
+    public static boolean  isNotEmpty(String s){
+    for(int i=0;i<s.length();i++){
+        if(s.charAt(i)==' '){
+            return false;
+        }
+    }
+    return true;
+   }
+    public static int countWordsInSentence(String s) {
+        String word = "";
+        int ct = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            if (c != ' ') {
+                word += c;
+            } else {
+                if (word.length() > 0 && isNotEmpty(word)) {
+                    ct++;
+                    word = ""; 
+                }
+            }
+        }
+        if (word.length() > 0 && isNotEmpty(word)) {
+            ct++;
+        }
+
+        return ct;
+    }
+
+    public static String removeDuplicateChar(String s){
+        char c[]=StringToCharArray(s);
+        int ct[]=frequncyArrayOfString(s);
+        String ans="";
+        for(int i=0;i<ct.length;i++){
+            if(ct[i]!=-1){
+                ans+=c[i];
+            }
+        }
+        return ans;
+    }
+    public static String uniqueCharInString(String s){
+        char c[]=s.toCharArray();
+        int ct[]=frequncyArrayOfString(s);
+        String ans="";
+        for(int i=0;i<ct.length;i++){
+            if(ct[i]==0){
+                ans+=c[i];
+            }
+        }
+        return ans;
+    }
+
+    public static int[] frequncyArrayOfString(String s){
+        int []ans=new int [s.length()];
+        char []c=StringToCharArray(s);
+        for(int i=0;i<ans.length;i++){
+            int ct=0;
+            if(ans[i]!=-1){
+                for(int j=i+1;j<c.length;j++){
+                    if(c[i]==c[j]){
+                        ct++;
+                        ans[j]=-1;
+                    }
+                }
+                ans[i]=ct;
+            }
+
+        }
+        return ans;
+
+    }
+
+    public static int length(String s){
+        int ct=0;
+       try {
+            for(int i=0; ;i++){
+            char c=s.charAt(i);
+            ct++;
+        }
+           
+       } catch (StringIndexOutOfBoundsException e) {
+         return ct;
+       }
+    }
+
+    public static String subString(String s,int start,int end){
+        String ans="";
+       if(start>=s.length()&& end<=s.length()){
+         for(int i=start;i<end;i++){
+            char c=s.charAt(i);
+            ans+=c;
+        }
+        return ans;
+       }
+       return s;
     }
     public static void frequncyOfCharecter(String s){
         for(int i=0;i<s.length();i++){
