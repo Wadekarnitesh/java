@@ -23,9 +23,28 @@ public class AllStringCode {
         // System.out.println(countWordsInSentence("   I love ibdia jwd dd "));
         // String []d=s.split(" ");
         // System.out.println(Arrays.toString(d)+d[d.length-1].charAt(0));
-        System.out.println(reverseSentenceIfWordEndSpecial(s));
+        // System.out.println(reverseSentenceIfWordEndSpecial(s));
+        System.out.println(isAnagram("cat", "actu"));
     
     }
+    public static boolean isAnagram(String s1,String s2){
+        s1=s1.toLowerCase();
+        s2=s2.toLowerCase();
+        char c1[]=s1.toCharArray();
+        char c2[]=s2.toCharArray();
+        Arrays.sort(c2);
+        Arrays.sort(c1);
+
+        
+        for(int i=0;i<c1.length;i++){
+            if(c1[i]!=c2[i]){
+                return false;
+            }
+        }
+        return true;
+  }
+
+
     public static String reverseWOrdInsteadSpecialChar(String s){
         String ans="";
         char ch=s.charAt(s.length()-1);
