@@ -1,6 +1,6 @@
 package collection;
 
-public class ArrayList<E> {
+public class ArrayList<E>{
     Object[] arr;
     int count = 0;
     int initialCap = ResizableArray.initialCap;
@@ -14,7 +14,7 @@ public class ArrayList<E> {
         arr = new Object[initialCap];
     }
 
-    public boolean add(Object o) {
+    public boolean add(E o) {
         if (count < arr.length * ResizableArray.loadFactor) {
             arr[count] = o;
             count++;
@@ -30,7 +30,7 @@ public class ArrayList<E> {
         return true;
     }
 
-    public boolean add(int index, Object o) {
+    public boolean add(int index, E o) {
         if (index <= count) {
             if (count + 1 < arr.length * ResizableArray.loadFactor) {
                 rightShift(index);
@@ -62,7 +62,7 @@ public class ArrayList<E> {
         }
     }
 
-    public boolean remove(Object o) {
+    public boolean remove(E o) {
         int index = indexOf(o);
         if (index != -1) {
             leftShift(index);
@@ -87,7 +87,7 @@ public class ArrayList<E> {
         }
     }
 
-    public int indexOf(Object o) {
+    public int indexOf(E o) {
         for (int i = 0; i < count; i++) {
             if (arr[i] != null && arr[i].equals(o)) {
                 return i;
@@ -108,7 +108,7 @@ public class ArrayList<E> {
         return op + "]";
     }
 
-    public boolean contains(Object o) {
+    public boolean contains(E o) {
         return indexOf(o) != -1;
     }
 
@@ -169,7 +169,7 @@ public class ArrayList<E> {
         }
         return true;
     }
-    public boolean addAll(int index,ResizableArray<E> arr){
+    public boolean addAll(int index,ResizableArray arr){
           if(index>=0 &&index<count && arr!=null&& (count!=0)){
             ArrayList<E> list=(ArrayList<E>) arr;
             for(int i=0;i<list.size();i++){
@@ -184,6 +184,10 @@ public class ArrayList<E> {
 
     }
 
+    public int size()
+    {
+        return count;
+    }
 
     
 }
