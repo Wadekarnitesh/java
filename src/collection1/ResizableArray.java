@@ -1,4 +1,4 @@
-package collection;
+package collection1;
 
 public  interface  ResizableArray<E> {
     int initialCap=10;

@@ -1,4 +1,4 @@
-package collection;
+package collection1;
 
 public class ArrayList<E> implements ResizableArray<E>{
     Object[] arr;
@@ -9,9 +9,14 @@ public class ArrayList<E> implements ResizableArray<E>{
         arr = new Object[initialCap];
     }
 
-    public ArrayList(int initialCap) {
-        this.initialCap = initialCap;
-        arr = new Object[initialCap];
+    public ArrayList(int initialCap) throws WrongInitialCapacity2
+     {
+        if(initialCap>0){
+            this.initialCap = initialCap;
+            arr = new Object[initialCap];
+        }else{
+            throw new WrongInitialCapacity2("initial capacity not negatie");
+        }
     }
 
     public boolean add(E o) {
@@ -169,7 +174,7 @@ public class ArrayList<E> implements ResizableArray<E>{
         }
         return true;
     }
-    public boolean addAll(int index,ResizableArray arr){
+    public boolean addAll(int index,ResizableArray<E> arr){
           if(index>=0 &&index<count && arr!=null&& (count!=0)){
             ArrayList<E> list=(ArrayList<E>) arr;
             for(int i=0;i<list.size();i++){
@@ -190,15 +195,47 @@ public class ArrayList<E> implements ResizableArray<E>{
     }
 
    public boolean removeAll( ResizableArray<E> o){
-        return true;
+        ArrayList<E> list=(ArrayList<E>)o;
+        if(list.size()==0){
+            return false;
+        }
+        else{
+            for(int i=0;i<count;i++){
+                remove(list.get(i));
+            }
+            return true;
+        }
    }
-   public boolean containsAll(ResizableArray<E> o){
+   public boolean containsAll(ResizableArray<E> arr){
+    if(arr!=null && ((ArrayList<E>)arr).count!=0){
+
+        ArrayList<E> list=(ArrayList<E>)arr;
+        for(int i=0;i<list.size();i++){
+            if(!this.contains((E)list.get(i))){
+                return false;
+            }
+        }
     return true;
+       }
+       return false;
    }
 
-   public void retailAll( ResizableArray<E> o){
+   public boolean  retailAll( ResizableArray<E> arr){
 
-     System.out.println();
+     if(arr!=null || ((ArrayList<E>)arr).count>0){
+        ArrayList list=((ArrayList<E>)arr);
+        ArrayList<E> a=new ArrayList<>();
+        for(int i=0;i<list.size();i++){
+            if(this.contains((E)list.get(i))){
+                a.add((E)list.get(i));
+            }
+
+        }
+        this.arr=a.arr;
+        this.count=a.count;
+        return true;
+     }
+     return false;
    }
     
 }
