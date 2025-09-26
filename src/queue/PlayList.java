@@ -22,7 +22,7 @@ public class PlayList {
     public void showCurrentSong(){
         Song s=list.element();
         if(s!=null){
-            System.out.println(s);
+            System.out.println(s.toString());
         }else{
             System.out.println("no song in playlist");
         }

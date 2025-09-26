@@ -16,6 +16,10 @@ public class Song {
         this.movie = movie;
     }
 
+   public String toString() {
+		return "[ name: "+ name +" singer: "+singer+ " lyrics: "+lyrics+" movie: "+movie+ " ]" ;
+	}
+
     
     
     

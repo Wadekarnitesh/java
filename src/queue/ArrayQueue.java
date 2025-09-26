@@ -144,9 +144,10 @@ public class ArrayQueue<E> implements Queue<E>  {
       return false;
     }
 
+
     public  void shuffle(){
       for(int i=ct-1;i>0;){
-        int j=(int)Math.random()*(i+1);
+        int j=(int)(Math.random()*(i+1));
         if(j!=0){
           Object temp=arr[i];
            arr[i]=arr[j];
