@@ -1,3 +1,5 @@
+import linkedListPak.Collection;
+
 public interface Collection<E>
 {
     boolean add(E o);
